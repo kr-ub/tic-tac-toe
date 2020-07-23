@@ -17,7 +17,22 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "prettier"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "**/*.js?(x)": [
+      "eslint --fix",
+      "prettier --write",
+      "git add"
+    ]
   },
   "browserslist": {
     "production": [
